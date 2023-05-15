@@ -1,6 +1,6 @@
 import MainContent from './components/MainContent';
 import logo from './assets/images/logo.png';
-// github actions
+// github actions somthing
 function App() {
   return (
     <>
