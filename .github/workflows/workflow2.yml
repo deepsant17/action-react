@@ -1,0 +1,37 @@
+name: Test project
+on: 
+  pull_request:
+            - opened
+  workflow_dispatch:
+  push:
+    branches:
+            - master
+jobs:
+  test:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Get code
+         uses: actions/checkout@v3
+       - name: Install NodeJS
+         uses: actions/setup-node@v3
+         with:
+           node-version: 18
+       - name: Install dependencies
+         run: npm ci
+       - name: Run tests
+         run: npm test
+  deploy:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Get code
+         uses: actions/checkout@v3
+       - name: Install NodeJS
+         uses: actions/setup-node@v3
+         with:
+           node-version: 18
+       - name: Install dependencies
+         run: npm ci
+       - name: Build the website
+         run: npm run build
+       - name: Deploy the website
+         run: echo "Deploying the website"
