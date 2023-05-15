@@ -1,11 +1,12 @@
 name: Test project
 on: 
   pull_request:
-            - opened
+    types:
+         - opened
   workflow_dispatch:
   push:
     branches:
-            - master
+         - master
 jobs:
   test:
      runs-on: ubuntu-latest
